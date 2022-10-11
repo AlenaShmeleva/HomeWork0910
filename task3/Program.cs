@@ -17,6 +17,10 @@ Console.Clear();
 
 void ResultMatrix(int[,] matrix, int [,] matr)
 {
+    if (matrix.GetLength(0) != matr.GetLength(1) )
+        Console.WriteLine("Произведение матриц невозможно!");
+    else
+    {
     int [,] resmatrix = new int [matrix.GetLength(0), matr.GetLength(1)];
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -30,12 +34,19 @@ void ResultMatrix(int[,] matrix, int [,] matr)
         }  
           Console.WriteLine();
     }
+    }
 }
-Console.WriteLine("Первая матрица:");
-int[,] matrix = new int[2, 2]; // Так как в условии не сказано, что матрица произвольно вводится пользователем.
+Console.Write("Введите кол-во строк первой  матрицы: ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите кол-во столбцов первой матрицы: ");
+int b = Convert.ToInt32(Console.ReadLine());
+int[,] matrix = new int[a, b]; 
 InputMatrix(matrix);
-Console.WriteLine("Вторая матрица:");
-int[,] matr = new int[2, 2];
+Console.Write("Введите кол-во строк второй матрицы: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите кол-во столбцов второй матрицы: ");
+int m = Convert.ToInt32(Console.ReadLine());
+int[,] matr = new int[n, m];
 InputMatrix(matr);
 Console.WriteLine("Произведение первой и второй матрицы: ");
 ResultMatrix(matrix, matr);
